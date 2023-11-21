@@ -8,7 +8,7 @@ import firebase from 'firebase/compat/app'
 import 'firebase/compat/firestore'
 import 'firebase/compat/auth'
 import clickoutside from '@/plugins/ClickOutSide'
-import pageScroll from './plugins/pageScroll.js'
+import pageScroll from './plugins/PageScroll.js'
 import VuePagination from './plugins/VuePagination.js'
 import VueValidate from './plugins/VueValidate.js'
 
