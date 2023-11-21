@@ -8,11 +8,12 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
+forum-mockup
 .DS_Store
-dist
 dist-ssr
 coverage
 *.local
+
 
 /cypress/videos/
 /cypress/screenshots/
@@ -22,10 +23,10 @@ coverage
 !.vscode/extensions.json
 .idea
 *.suo
-*.env
+*.env*
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
 serviceAccount.json
-forum-mockup
+
