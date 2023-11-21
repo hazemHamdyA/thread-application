@@ -22,8 +22,10 @@ coverage
 !.vscode/extensions.json
 .idea
 *.suo
+*.env
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
 serviceAccount.json
+forum-mockup
