@@ -12,6 +12,7 @@ import pageScroll from './plugins/PageScroll.js'
 import VuePagination from './plugins/VuePagination.js'
 import VueValidate from './plugins/VueValidate.js'
 import Vue3Toasity from 'vue3-toastify'
+// import { autoAnimatePlugin } from '@formkit/auto-animate/vue'
 
 const config = {
   apiKey: 'AIzaSyAr_cyVfZVQ3T-WQTKtir9RgyTc5mbcVCk',
@@ -31,6 +32,7 @@ mainApp.use(pageScroll)
 mainApp.use(VuePagination)
 mainApp.use(VueValidate)
 mainApp.use(Vue3Toasity)
+// mainApp.use(autoAnimatePlugin)
 
 mainApp.use(router)
 mainApp.mount('#app')

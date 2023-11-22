@@ -50,7 +50,9 @@
                 <RouterLink :to="{ name: 'profile' }">View profile</RouterLink>
               </li>
               <li class="dropdown-menu-item">
-                <a v-if="activeUser" @click.prevent="authStore.logOut()">LogOut</a>
+                <a v-if="activeUser" @click.prevent="authStore.logOut(), $router.push('/')"
+                  >LogOut</a
+                >
               </li>
             </ul>
           </div>

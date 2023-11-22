@@ -6,12 +6,15 @@
       @ready="onReady"
       :key="$route.path + JSON.stringify($route.query)"
     />
+
     <AppSpinner v-show="isLoading" />
   </div>
   <AppNotifications />
 </template>
 
 <script setup>
+// import { ref } from 'vue'
+
 import { useRouter } from 'vue-router'
 import { ref } from 'vue'
 import NProgress from 'nprogress'

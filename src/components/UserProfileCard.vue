@@ -1,5 +1,5 @@
 <template>
-  <div class="profile-card">
+  <div class="profile-card" style="width: 100%">
     <p class="text-center">
       <AppAvatar :src="actieUser.avatar" :alt="`${actieUser.name}`" class="avatar-xlarge" />
       <!-- <img :src="actieUser.avatar" :alt="`${actieUser.name}`" class="avatar-xlarge" /> -->
