@@ -1,6 +1,6 @@
 <template>
   <div class="container" style="margin-bottom: 3rem">
-    <div class="flex-grid justify-center">
+    <div v-if="!sending" class="flex-grid justify-center">
       <div class="col-2">
         <VForm @submit="register" class="card card-form">
           <h1 class="text-center">Register</h1>
@@ -64,19 +64,23 @@
         </div>
       </div>
     </div>
+    <div v-else>
+      <AppSpinner epic class="spinner" />
+      <h3 style="margin-top: -2rem">Creating Your Account</h3>
+    </div>
   </div>
 </template>
 
 <script setup>
 import { useRouter } from 'vue-router'
 import auth from '@/stories/authentication.js'
-// import { Form, Field, ErrorMessage } from 'vee-validate'
 import { reactive, ref } from 'vue'
 
 const authStore = auth()
 const router = useRouter()
 const emits = defineEmits(['ready'])
 const avaterPreview = ref(null)
+const sending = ref(false)
 const form = reactive({
   name: null,
   userName: null,
@@ -85,7 +89,10 @@ const form = reactive({
   avatar: ''
 })
 const register = async function () {
+  sending.value = true
   await authStore.registerUserWithEmailAndPassword(form)
+  sending.value = false
+
   router.push('/')
 }
 const loginWithGoogle = async function () {
@@ -93,9 +100,7 @@ const loginWithGoogle = async function () {
   router.push('/')
 }
 const handelImageUpload = function (e) {
-  // getting the image
-  form.avatar = e.target.files[0] //files is filelist of the user can upload [0] is the first thing that user upload
-  // to display image
+  form.avatar = e.target.files[0]
   const reader = new FileReader()
   reader.onload = (e) => {
     avaterPreview.value = e.target.result
@@ -106,4 +111,12 @@ const handelImageUpload = function (e) {
 emits('ready')
 </script>
 
-<style scoped></style>
+<style scoped>
+.spinner {
+  margin-top: 10rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+</style>

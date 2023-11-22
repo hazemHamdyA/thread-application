@@ -21,14 +21,19 @@
       <button type="button" class="btn btn-ghost" @click="$emit('cancle')">Cancel</button>
       <button class="btn btn-blue" type="submit" name="Edit">
         {{ existing ? 'Update' : 'Publish' }}
+        <AppTest content="New Thread Added" :now="true" @notify-now="toast" />
       </button>
     </div>
   </VForm>
 </template>
 
 <script setup>
-import { reactive, computed, watch } from 'vue'
+import { reactive, computed, watch, ref } from 'vue'
+import { useRouter } from 'vue-router'
+import auth from '@/stories/authentication.js'
+const authStore = auth()
 const emit = defineEmits(['save', 'cancle', 'dirty', 'clean'])
+const router = useRouter()
 const props = defineProps({
   title: {
     type: String,
@@ -41,7 +46,7 @@ const props = defineProps({
 })
 
 const existing = computed(() => !!props.title)
-
+const getToas = ref(null)
 const form = reactive({
   title: props.title,
   text: props.text
@@ -49,8 +54,11 @@ const form = reactive({
 const save = () => {
   emit('save', { ...form })
   emit('clean')
+  getToas.value()
 }
-
+function toast(val) {
+  getToas.value = val
+}
 watch(
   form,
   () => {

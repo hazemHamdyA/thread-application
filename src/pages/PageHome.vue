@@ -1,6 +1,6 @@
 <template>
   <div v-if="asyncDataStatues_isReady" class="container">
-    <h1 class="push-top">welcome to Fourm</h1>
+    <h1 class="push-top">Welcome to King Fourms</h1>
     <CategoriesList :categories="categories" />
   </div>
 </template>

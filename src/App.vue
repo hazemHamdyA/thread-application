@@ -1,9 +1,6 @@
 <template>
   <TheNavbar />
   <div class="container">
-    <!-- to force router destory the router after each route we have to give it a key 
-    to can route to thread from another thread 
-    -->
     <RouterView
       v-show="!isLoading"
       @ready="onReady"
@@ -15,7 +12,6 @@
 </template>
 
 <script setup>
-/*  whenever we need some code run on every page we can use this code inside App.vue */
 import { useRouter } from 'vue-router'
 import { ref } from 'vue'
 import NProgress from 'nprogress'
@@ -48,4 +44,5 @@ created()
 /* #nprogress .bar {
   background: #263959;
 } */
+@import 'vue3-toastify/dist/index.css';
 </style>

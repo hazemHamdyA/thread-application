@@ -6,7 +6,8 @@
     v-page-scroll="() => (showMenu = false)"
   >
     <routerLink to="/" class="logo">
-      <img src="@/assets/svg/vueschool-logo.svg" />
+      <!-- <img src="@/assets/svg/vueschool-logo.svg" /> -->
+      <img src="@/assets/king.png" />
     </routerLink>
 
     <div
@@ -14,13 +15,11 @@
       v-page-scroll="() => (barOpened = false)"
       class="btn-hamburger"
     >
-      <!-- use .btn-humburger-active to open the menu -->
       <div class="top bar"></div>
       <div class="middle bar"></div>
       <div class="bottom bar"></div>
     </div>
 
-    <!-- use .navbar-open to open nav -->
     <nav
       :class="[
         'navbar',
@@ -37,19 +36,13 @@
               :src="activeUser.avatar || '/user-placeholder.png'"
               alt="image for the person"
             />
-            <!-- <img
-              class="avatar-small"
-              :src="activeUser.avatar || '/user-placeholder.png'"
-              alt="image for the person"
-            /> -->
+
             <span>
               {{ activeUser.name }}
               <img class="icon-profile" src="@/assets/svg/arrow-profile.svg" alt="" />
             </span>
           </a>
 
-          <!-- dropdown menu -->
-          <!-- add class "active-drop" to show the dropdown -->
           <div id="user-dropdown" :class="{ 'active-drop': showMenu }">
             <div class="triangle-drop"></div>
             <ul class="dropdown-menu">
@@ -75,7 +68,7 @@
         <li class="navbar-item">
           <routerLink to="/">Home</routerLink>
         </li>
-        <!-- Show these option only on mobile-->
+
         <li class="navbar-item mobile-only">
           <router-link :to="{ name: 'profile' }">My Profile</router-link>
         </li>

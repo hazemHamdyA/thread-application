@@ -1,22 +1,29 @@
 <script setup>
 import { ref } from 'vue'
+import { OrbitSpinner } from 'epic-spinners'
+
 const props = defineProps({
   spinnerColor: {
     type: String,
     default: '#263959'
+  },
+  epic: {
+    type: Boolean,
+    default: false
   }
 })
 const colorOfSpinner = ref(props.spinnerColor)
 </script>
 
 <template>
-  <div class="spinner">
+  <div class="spinner" v-if="!epic">
     <div class="rect1"></div>
     <div class="rect2"></div>
     <div class="rect3"></div>
     <div class="rect4"></div>
     <div class="rect5"></div>
   </div>
+  <orbit-spinner v-else :animation-duration="1200" :size="100" color="#263959" />
 </template>
 
 <style scoped>

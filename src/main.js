@@ -11,6 +11,7 @@ import clickoutside from '@/plugins/ClickOutSide'
 import pageScroll from './plugins/PageScroll.js'
 import VuePagination from './plugins/VuePagination.js'
 import VueValidate from './plugins/VueValidate.js'
+import Vue3Toasity from 'vue3-toastify'
 
 const config = {
   apiKey: 'AIzaSyAr_cyVfZVQ3T-WQTKtir9RgyTc5mbcVCk',
@@ -29,6 +30,7 @@ mainApp.use(clickoutside)
 mainApp.use(pageScroll)
 mainApp.use(VuePagination)
 mainApp.use(VueValidate)
+mainApp.use(Vue3Toasity)
 
 mainApp.use(router)
 mainApp.mount('#app')
